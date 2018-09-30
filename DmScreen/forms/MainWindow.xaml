@@ -1,0 +1,17 @@
+﻿<Window x:Name="frmDmHelperMain" x:Class="DmScreen.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DmScreen"
+        mc:Ignorable="d"
+        Title="DM Helper" Height="343.269" Width="357.692" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Button x:Name="btnChooseCampaign" Content="Select Campaign" HorizontalAlignment="Left" Margin="109,77,0,0" VerticalAlignment="Top" Width="116" Height="26" Click="btnChooseCampaign_Click"/>
+        <Button x:Name="btnAbout" Content="About" HorizontalAlignment="Left" Margin="109,117,0,0" VerticalAlignment="Top" Width="116" Height="26" Click="btnAbout_Click"/>
+        <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" Margin="109,159,0,0" VerticalAlignment="Top" Width="116" Height="26" Click="btnExit_Click"/>
+        <Label Content="DM Helper" HorizontalAlignment="Left" Margin="75,10,0,0" VerticalAlignment="Top" Height="62" Width="190" FontSize="36" FontStyle="Italic" FontWeight="Bold"/>
+        <Label Content="Bartosz Kosakowski, 2018" HorizontalAlignment="Left" Margin="96,275,0,0" VerticalAlignment="Top" Height="27" Width="149"/>
+
+    </Grid>
+</Window>
