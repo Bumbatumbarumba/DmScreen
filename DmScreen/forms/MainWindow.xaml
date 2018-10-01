@@ -11,7 +11,8 @@
         <Button x:Name="btnAbout" Content="About" HorizontalAlignment="Left" Margin="109,117,0,0" VerticalAlignment="Top" Width="116" Height="26" Click="btnAbout_Click"/>
         <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" Margin="109,159,0,0" VerticalAlignment="Top" Width="116" Height="26" Click="btnExit_Click"/>
         <Label Content="DM Helper" HorizontalAlignment="Left" Margin="75,10,0,0" VerticalAlignment="Top" Height="62" Width="190" FontSize="36" FontStyle="Italic" FontWeight="Bold"/>
-        <Label Content="Bartosz Kosakowski, 2018" HorizontalAlignment="Left" Margin="96,275,0,0" VerticalAlignment="Top" Height="27" Width="149"/>
+        <Label Content="Bartosz Kosakowski, 2018" HorizontalAlignment="Right" Margin="0,268,94,0" VerticalAlignment="Top" Height="27" Width="149"/>
+        <Button x:Name="btnHelp" Content="?" HorizontalAlignment="Left" Margin="10,271,0,0" VerticalAlignment="Top" Width="24" Click="btnHelp_Click"/>
 
     </Grid>
 </Window>

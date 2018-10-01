@@ -59,5 +59,10 @@ namespace DmScreen
         {
             Application.Current.Shutdown();
         }
+
+        private void btnHelp_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://bartkosa.com/DmScreenHelp/");
+        }
     }
 }

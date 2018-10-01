@@ -10,6 +10,6 @@
         <Button x:Name="btnBackToMain" Content="Back" HorizontalAlignment="Left" Margin="345,106,0,0" VerticalAlignment="Top" Width="101" Height="24" Click="btnBackToMain_Click"/>
         <ListBox x:Name="lstCampaignList" HorizontalAlignment="Left" Height="303" Margin="10,10,0,0" VerticalAlignment="Top" Width="316" ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
         <Button x:Name="btnNewCampaign" Content="Create New" HorizontalAlignment="Left" Margin="345,58,0,0" VerticalAlignment="Top" Width="101" Height="24" Click="btnNewCampaign_Click"/>
-        <Button x:Name="btnLoadSelected" Content="Load Selected" HorizontalAlignment="Left" Margin="345,10,0,0" VerticalAlignment="Top" Width="101" Height="24" IsEnabled="False"/>
+        <Button x:Name="btnLoadSelected" Content="Load Selected" HorizontalAlignment="Left" Margin="345,10,0,0" VerticalAlignment="Top" Width="101" Height="24" IsEnabled="False" Click="btnLoadSelected_Click"/>
     </Grid>
 </Window>

@@ -46,6 +46,8 @@ namespace DmScreen
                 {
                     HelperClass.CreateNewCampaignDirectory(txtCampaignName.Text, lblCreationDate.Content.ToString(), txtTheme.Text);
                     currentSelect.AddToList(txtCampaignName.Text, null, lblCreationDate.Content.ToString(), txtTheme.Text);
+                    SelectCampaign refreshSelectScreen = new SelectCampaign { Visibility = Visibility.Visible };
+                    currentSelect.Close();
                     this.Close();
                 }
                 catch (CampaignDirectoryExistsError err)

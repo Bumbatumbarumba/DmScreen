@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DmScreen.forms;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -23,21 +24,15 @@ namespace DmScreen
 
         CreateNewForm newForm;
 
+        private string SelectedTitle;
+        private string SelectedDate;
+        private string SelectedTheme;
+
+
         public SelectCampaign()
         {
             InitializeComponent();
             HelperClass.IterateThroughCampaignFiles(this);
-            InitScreen();
-        }
-
-
-        //
-        // Inits the screen with whatever data should be present when a new instance of
-        // the screen is created.
-        //
-        public void InitScreen()
-        {
-            //WHY DID I USE THIS? SEEMS DUMB AddToList("", "", "");
         }
 
 
@@ -68,18 +63,6 @@ namespace DmScreen
 
 
         //
-        // Called when the constructor is called for this screen, then it populates the listbox
-        // with canvas objects that show all campaigns. The data is pulled from <current dir>/campaigns.
-        //
-        private void PopulateCampaignList()
-        {
-            //
-            // TO DO
-            //
-        }
-
-
-        //
         // Adds a new item to the list of campaigns; if there exists a file with the same name
         // as the one to be created then it prompts the user to change the name and does not 
         // proceed.
@@ -87,6 +70,7 @@ namespace DmScreen
         public void AddToList(string title, string imagePath, string date, string theme)
         {
             this.lstCampaignList.Items.Add(newCampaignItem(title,imagePath, date, theme));
+            this.lstCampaignList.InvalidateVisual();
         }
 
         //
@@ -156,7 +140,24 @@ namespace DmScreen
             campaignEntry.Children.Add(lblDate);
             campaignEntry.Children.Add(lblTheme);
 
+            // Add an event handler that allows us to specify what happens when the user selects the item from the list.
+            campaignEntry.MouseDown += 
+                (sender, MouseButtonEventHandler) => { SelectCampaignEntry(sender, MouseButtonEventHandler, title, date, theme); };
+                //new MouseButtonEventHandler(SelectCampaignEntry);
             return campaignEntry;
+        }
+
+
+        //
+        // When the item from the campaign list is selected, we store the data we need and enable 
+        // the load button.
+        //
+        private void SelectCampaignEntry(object sender, RoutedEventArgs e, string title, string date, string theme)
+        {
+            this.SelectedTitle = title;
+            this.SelectedDate = date;
+            this.SelectedTheme = theme;
+            btnLoadSelected.IsEnabled = true;
         }
 
 
@@ -177,6 +178,16 @@ namespace DmScreen
             }
 
             return previewPic;
+        }
+
+
+        //
+        // Creates a new instance of the selected campaign and then closes this window.
+        //
+        private void btnLoadSelected_Click(object sender, RoutedEventArgs e)
+        {
+            SelectedCampaignScreen loadSelected = new SelectedCampaignScreen(SelectedTitle, SelectedDate, SelectedTheme) { Visibility = Visibility.Visible };
+            this.Close();
         }
     }
 }

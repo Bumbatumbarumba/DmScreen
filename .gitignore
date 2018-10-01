@@ -1,2 +1,8 @@
 DmScreen/bin/
 DmScreen/obj/
+/.vs/DmScreen/v15/Server/sqlite3
+/.vs/DmScreen/v15
+/DmScreen/DmScreen.csproj
+/DmScreen/App.xaml.cs
+/DmScreen/App.xaml
+/DmScreen/App.config

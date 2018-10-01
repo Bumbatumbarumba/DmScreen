@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -60,12 +61,10 @@ namespace DmScreen
                     myFile.WriteLine("#any line prefaced with a # or whitespace is ignored");
                     myFile.WriteLine("#please do not change the order of the data");
                     myFile.WriteLine("title=" + campaignTitle);
-                    myFile.WriteLine(@"previmg=..\resources\images\defaultCamp.bmp");
+                    myFile.WriteLine(@"previmg=C:\DmHelper\resources\images\defaultCamp.png");
                     myFile.WriteLine("createdOn=\"" + date + "\"");
                     myFile.WriteLine("theme=" + theme);
                 }
-
-                MessageBox.Show("Success!");
             }
             else
             {
@@ -131,12 +130,74 @@ namespace DmScreen
             HelperClass.CurrentPath = @"C:\";
             if (!Directory.Exists(System.IO.Path.Combine(HelperClass.CurrentPath, "DmHelper")))
             {
-                Directory.CreateDirectory(System.IO.Path.Combine(HelperClass.CurrentPath, "DmHelper"));
-                Directory.CreateDirectory(System.IO.Path.Combine(HelperClass.CurrentPath, @"DmHelper\campaigns"));
-                Directory.CreateDirectory(System.IO.Path.Combine(HelperClass.CurrentPath, @"DmHelper\resources"));
-                Directory.CreateDirectory(System.IO.Path.Combine(HelperClass.CurrentPath, @"DmHelper\resources\images"));
-                Directory.CreateDirectory(System.IO.Path.Combine(HelperClass.CurrentPath, @"DmHelper\resources\music"));
-                Directory.CreateDirectory(System.IO.Path.Combine(HelperClass.CurrentPath, @"DmHelper\resources\other"));
+                CreateRequiredDirectories();
+                
+            }
+
+            // If the image file does not exists, we call the function to download it and add
+            // it to C:\DmHelper\resources\images\
+            //
+            if (!ValidateImageFile())
+            {
+                GetDefaultCampImage();
+            }
+        }
+
+
+        //
+        // Creates all of the folders required for DmHelper.
+        //
+        private static void CreateRequiredDirectories()
+        {
+            Directory.CreateDirectory(System.IO.Path.Combine(HelperClass.CurrentPath, "DmHelper"));
+            Directory.CreateDirectory(System.IO.Path.Combine(HelperClass.CurrentPath, @"DmHelper\campaigns"));
+            Directory.CreateDirectory(System.IO.Path.Combine(HelperClass.CurrentPath, @"DmHelper\resources"));
+            Directory.CreateDirectory(System.IO.Path.Combine(HelperClass.CurrentPath, @"DmHelper\resources\images"));
+            Directory.CreateDirectory(System.IO.Path.Combine(HelperClass.CurrentPath, @"DmHelper\resources\music"));
+            Directory.CreateDirectory(System.IO.Path.Combine(HelperClass.CurrentPath, @"DmHelper\resources\other"));
+        }
+
+
+        //
+        // Checks if there exists the default campaign icon under C:\DmHelper\resources\images\
+        // and then downloads it if it is not there.
+        //
+        public static bool ValidateImageFile()
+        {
+            bool fileExists = false;
+
+            string pathToImg = @"C:\DmHelper\resources\images\defaultCamp.png";
+            if (File.Exists(pathToImg))
+            {
+                fileExists = true;
+            }
+            return fileExists;
+        }
+
+
+        //
+        // Downloads the default icon image for campaigns.
+        //
+        private static void GetDefaultCampImage()
+        {
+            Uri urlUri = new Uri("https://i.imgur.com/pgWcnBZ.png?1");
+            var request = WebRequest.CreateDefault(urlUri);
+
+            byte[] buffer = new byte[4096];
+
+            using (var target = new FileStream(@"C:\DmHelper\resources\images\defaultCamp.png", FileMode.Create, FileAccess.Write))
+            {
+                using (var response = request.GetResponse())
+                {
+                    using (var stream = response.GetResponseStream())
+                    {
+                        int read;
+                        while ((read = stream.Read(buffer, 0, buffer.Length)) > 0)
+                        {
+                            target.Write(buffer, 0, read);
+                        }
+                    }
+                }
             }
         }
     }

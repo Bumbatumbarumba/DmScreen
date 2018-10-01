@@ -30,7 +30,6 @@ namespace DmScreen.forms
             CampaignTitle = title;
             CreatedOnDate = date;
             Theme = theme;
-            LastAccessedOn = DateTime.Today.ToString();
         }
     }
 }

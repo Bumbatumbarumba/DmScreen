@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2016
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DmScreen", "DmScreen\DmScreen.csproj", "{BDF6C505-6C59-4A49-A4ED-9C4C31131676}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDF6C505-6C59-4A49-A4ED-9C4C31131676}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDF6C505-6C59-4A49-A4ED-9C4C31131676}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDF6C505-6C59-4A49-A4ED-9C4C31131676}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDF6C505-6C59-4A49-A4ED-9C4C31131676}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {269D832B-1F07-4724-9CF1-51A8E58B18BA}
+	EndGlobalSection
+EndGlobal
