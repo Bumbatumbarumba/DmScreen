@@ -22,8 +22,6 @@ namespace DmScreen
     public partial class SelectCampaign : Window
     {
 
-        CreateNewForm newForm;
-
         private string SelectedTitle;
         private string SelectedDate;
         private string SelectedTheme;
@@ -53,12 +51,11 @@ namespace DmScreen
         //
         private void btnNewCampaign_Click(object sender, RoutedEventArgs e)
         {
-            if (this.newForm != null)
-                this.newForm.Close();
-
-            newForm = new CreateNewForm(this) {
+            CreateNewForm newForm = new CreateNewForm(this)
+            {
                 Visibility = Visibility.Visible
             };
+            newForm.ShowDialog();
         }
 
 
@@ -186,7 +183,11 @@ namespace DmScreen
         //
         private void btnLoadSelected_Click(object sender, RoutedEventArgs e)
         {
-            SelectedCampaignScreen loadSelected = new SelectedCampaignScreen(SelectedTitle, SelectedDate, SelectedTheme) { Visibility = Visibility.Visible };
+            SelectedCampaignScreen loadSelected = new SelectedCampaignScreen(SelectedTitle, SelectedDate, SelectedTheme) {
+                Visibility = Visibility.Visible,
+                IsEnabled = true
+            };
+            loadSelected.ShowDialog();
             this.Close();
         }
     }

@@ -6,6 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using DmScreen.classes;
 using DmScreen.services;
 
 namespace DmScreen
@@ -31,7 +32,10 @@ namespace DmScreen
                 Directory.CreateDirectory(System.IO.Path.Combine(CurrentPath, campaignDataDir + @"\npcs\"));
                 Directory.CreateDirectory(System.IO.Path.Combine(CurrentPath, campaignDataDir + @"\enemies\"));
                 Directory.CreateDirectory(System.IO.Path.Combine(CurrentPath, campaignDataDir + @"\players\"));
-                CreateCampaignDataFile(campaignDataDir, campaignTitle, creationDate, campaignTheme);
+
+                CreateCampaignDataFile(campaignTitle, creationDate, campaignTheme);
+
+                CreateMusicListFile(campaignTitle);
             }
             else
             {
@@ -47,7 +51,7 @@ namespace DmScreen
         // same name as the campaign title. It will contain various "config settings" such as the title, 
         //the creation date, the theme, the preview image location, as well as other information.
         //
-        public static void CreateCampaignDataFile(string campaignDirectory, string campaignTitle, string date, string theme)
+        public static void CreateCampaignDataFile(string campaignTitle, string date, string theme)
         {
 
             string path = @"C:\DmHelper\campaigns\" + campaignTitle + @"\" + campaignTitle + ".campaign";
@@ -109,7 +113,7 @@ namespace DmScreen
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 MessageBox.Show("Tried to read file: " + path + " - could not find.");
             }
@@ -198,6 +202,49 @@ namespace DmScreen
                         }
                     }
                 }
+            }
+        }
+
+
+        //
+        // Creates a file to store the titles for each music object, as well as their 
+        // location on the user's drive.
+        //
+        public static void CreateMusicListFile(string campaignTitle)
+        {
+            string path = @"C:\DmHelper\campaigns\" + campaignTitle + @"\" + campaignTitle + "music.txt";
+            //Directory.CreateDirectory(path);
+            if (!File.Exists(path))
+            {
+                File.Create(path).Close();
+            }
+            else
+            {
+                throw new CampaignDirectoryExistsError(path + " already exists.");
+            }
+        }
+
+
+        //
+        // Updates the music file list whenever a new music file object is created; that
+        // is, whenever the user clicks "upload" on the MusicPlayer menu.
+        //
+        public static void UpdateMusicListFile(string campaignTitle, AreaMusicObject newSound)
+        {
+            string filepath = @"C:\DmHelper\campaigns\" + campaignTitle + @"\" + campaignTitle + "music.txt";
+            try
+            {
+                using (var myFile = new StreamWriter(filepath, true))
+                {
+                    myFile.WriteLine("soundtitle=\"" + newSound.Title + "\"");
+                    myFile.WriteLine("musicpath=\"" + newSound.SoundFilePath + "\"");
+                    myFile.WriteLine("ismusicfile=\"" + newSound.IsMusicFile + "\"");
+                    myFile.WriteLine("\n");
+                }
+            }
+            catch (Exception)
+            {
+
             }
         }
     }

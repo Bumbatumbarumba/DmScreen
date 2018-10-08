@@ -30,6 +30,17 @@ namespace DmScreen.forms
             CampaignTitle = title;
             CreatedOnDate = date;
             Theme = theme;
+            frmLoadedCampaign.Title = title;
+        }
+
+
+        //
+        // Creates a music player instance.
+        //
+        private void btnMusicPlayer_Click(object sender, RoutedEventArgs e)
+        {
+            MusicPlayer player = new MusicPlayer(CampaignTitle) { Visibility = Visibility.Visible };
+            player.ShowDialog();
         }
     }
 }
