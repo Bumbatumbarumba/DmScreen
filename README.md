@@ -1,0 +1,1 @@
+A virtual Dungeon Master screen for Dungeons and Dragons players! Visit http://bartkosa.com/DmScreenHelp/ for more info, the download (when it is at a more completed state), and potentially other things.
