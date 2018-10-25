@@ -42,5 +42,13 @@ namespace DmScreen.forms
             MusicPlayer player = new MusicPlayer(CampaignTitle) { Visibility = Visibility.Visible };
             player.ShowDialog();
         }
+
+
+        //
+        private void btnDice_Click(object sender, RoutedEventArgs e)
+        {
+            DiceScreen dice = new DiceScreen() { Visibility = Visibility.Visible };
+            dice.ShowDialog();
+        }
     }
 }

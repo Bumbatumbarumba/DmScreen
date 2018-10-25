@@ -7,13 +7,18 @@
         mc:Ignorable="d"
         Title="MusicPlayer" Height="168.421" Width="698.684" ResizeMode="NoResize">
     <Grid >
-        <ListBox x:Name="lstMusicList" HorizontalAlignment="Left" Height="105" Margin="10,10,0,0" VerticalAlignment="Top" Width="363"/>
+        <ListBox x:Name="lstMusicList" HorizontalAlignment="Left" Height="105" Margin="10,10,0,0" VerticalAlignment="Top" Width="363">
+            <Canvas Height="36" Width="353">
+                <Label Content="Label" Canvas.Left="10" Height="36" Width="333" FontSize="14"/>
+            </Canvas>
+        </ListBox>
         <Button x:Name="btnPlay" Content="|&gt;" HorizontalAlignment="Left" Margin="494,38,0,0" VerticalAlignment="Top" Width="67" Height="49"/>
         <Button x:Name="btnPause" Content="|  |" HorizontalAlignment="Left" Margin="494,38,0,0" VerticalAlignment="Top" Width="67" Height="49" IsEnabled="False" Visibility="Hidden"/>
         <Button x:Name="btnPrevious" HorizontalAlignment="Left" Margin="405,52,0,0" VerticalAlignment="Top" Width="75" Height="20" Content="&lt;&lt;" Click="btnPrevious_Click"/>
         <Button x:Name="btnNext" Content="&gt;&gt;" HorizontalAlignment="Left" Margin="576,52,0,0" VerticalAlignment="Top" Width="75" Click="btnNext_Click"/>
         <Button x:Name="btnHelp" Content="?" HorizontalAlignment="Left" VerticalAlignment="Top" Width="24" Click="btnHelp_Click" Margin="641,10,0,0" RenderTransformOrigin="0.458,0.25"/>
-        <Button x:Name="btnAddSong" Content="Add Song" HorizontalAlignment="Left" Margin="389,95,0,0" VerticalAlignment="Top" Width="75" Click="btnAddSong_Click"/>
+        <Button x:Name="btnAddSong" Content="Add Song" HorizontalAlignment="Left" Margin="389,95,0,0" VerticalAlignment="Top" Width="90" Click="btnAddSong_Click"/>
+        <Button x:Name="btnDeleteSong" Content="Delete Selected" HorizontalAlignment="Left" Margin="575,95,0,0" VerticalAlignment="Top" Width="90" IsEnabled="False" Click="btnDeleteSong_Click"/>
 
     </Grid>
 </Window>

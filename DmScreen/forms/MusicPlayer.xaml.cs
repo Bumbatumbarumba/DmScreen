@@ -1,4 +1,5 @@
 ﻿using DmScreen.classes;
+using DmScreen.services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,13 +23,25 @@ namespace DmScreen.forms
     {
         public string CampaignTitle { get; set; }
 
+        private Canvas selectedMusicCanvas;
+
         public MusicPlayer(string campaignTitle)
         {
             InitializeComponent();
             CampaignTitle = campaignTitle;
+            //PopulateMusicPlayerList();
         }
 
-    
+
+        //
+        // Takes the data from the music list file and then adds it to the listbox.
+        //
+        private void PopulateMusicPlayerList()
+        {
+            throw new NotImplementedException();
+        }
+
+
         //
         // Shows message explaining the buttons for the music player.
         //
@@ -95,7 +108,7 @@ namespace DmScreen.forms
         {
             AreaMusicObject music = new AreaMusicObject(title, filePath, isMusicFile);
             lstMusicList.Items.Add(CreateMusicCanvas(music));
-            HelperClass.UpdateMusicListFile(CampaignTitle, music);
+            MusicHelperClass.UpdateMusicListFile(CampaignTitle, music);
         }
 
 
@@ -104,11 +117,47 @@ namespace DmScreen.forms
         //
         private Canvas CreateMusicCanvas(AreaMusicObject newMusic)
         {
-            Canvas cvs = new Canvas();
+            Canvas cvs = new Canvas()
+            {
+                Visibility = Visibility.Visible,
+                Height = 36,
+                Width = 353
+            };
 
-            // DO STUFF
+            Label title = new Label()
+            {
+                Visibility = Visibility.Visible,
+                Content = newMusic.Title,
+                FontSize = 14,
+                Margin = new Thickness(10, 0, 0, 0),
+                Height = 36,
+                Width = 333
+            };
+
+            cvs.Children.Add(title);
+
+            // adds an event so that when the 
+            cvs.MouseDown +=
+                (sender, MouseButtonEventHandler) => { SelectedItem(sender, MouseButtonEventHandler, cvs); };
 
             return cvs;
+        }
+
+
+        //
+        //
+        private void SelectedItem(object sender, RoutedEventArgs e, Canvas selectedItem)
+        {
+            this.selectedMusicCanvas = selectedItem;
+            btnDeleteSong.IsEnabled = true;
+        }
+
+
+        //
+        //
+        private void btnDeleteSong_Click(object sender, RoutedEventArgs e)
+        {
+            lstMusicList.Items.Remove(selectedMusicCanvas);
         }
     }
 }

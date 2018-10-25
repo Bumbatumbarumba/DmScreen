@@ -1,0 +1,28 @@
+﻿<Window x:Name="frmDice" x:Class="DmScreen.forms.DiceScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DmScreen.forms"
+        mc:Ignorable="d"
+        Title="DiceScreen" Height="397" Width="626">
+    <Grid x:Name="grdHome">
+        <Border BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Height="335" Margin="10,10,0,0" VerticalAlignment="Top" Width="378">
+            <Canvas x:Name="cvsDiceTray" Background="Gray"/>
+        </Border>
+        <RadioButton x:Name="rdD4" Content="D4" HorizontalAlignment="Left" Margin="508,88,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtNumber" HorizontalAlignment="Left" Height="23" Margin="508,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" PreviewTextInput="PreviewTextInput"/>
+        <Button x:Name="btnRoll" Content="Roll!" HorizontalAlignment="Left" Margin="448,259,0,0" VerticalAlignment="Top" Width="119" Height="39" Click="btnRoll_Click"/>
+        <Label Content="Number of Dice:" HorizontalAlignment="Left" Margin="404,26,0,0" VerticalAlignment="Top" Width="99"/>
+        <Label Content="Type of Dice:" HorizontalAlignment="Left" Margin="404,80,0,0" VerticalAlignment="Top" Width="99"/>
+        <RadioButton x:Name="rdD6" Content="D6" HorizontalAlignment="Left" Margin="508,108,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rdD8" Content="D8" HorizontalAlignment="Left" Margin="508,128,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rdD10" Content="D10" HorizontalAlignment="Left" Margin="508,148,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rdD12" Content="D12" HorizontalAlignment="Left" Margin="508,168,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rdD20" Content="D20" HorizontalAlignment="Left" Margin="508,188,0,0" VerticalAlignment="Top"/>
+        <Label Content="Sum of Rolls:" HorizontalAlignment="Left" Margin="404,213,0,0" VerticalAlignment="Top" Width="99"/>
+        <TextBox x:Name="txtRollResult" HorizontalAlignment="Left" Height="23" Margin="422,322,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" IsEnabled="False"/>
+        <TextBox x:Name="txtDiceSum" HorizontalAlignment="Left" Height="23" Margin="508,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" PreviewTextInput="PreviewTextInput" IsEnabled="False"/>
+
+    </Grid>
+</Window>

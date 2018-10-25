@@ -40,6 +40,7 @@ namespace DmScreen.forms
             {
                 txtUrl.IsEnabled = true;
                 txtUrl.Text = "URL";
+                btnSelectFile.IsEnabled = false;
                 IsMusicFile = false;
             }
             catch (Exception)
@@ -58,6 +59,7 @@ namespace DmScreen.forms
             {
                 txtUrl.IsEnabled = false;
                 txtUrl.Text = "";
+                btnSelectFile.IsEnabled = true;
                 IsMusicFile = true;
             }
             catch (Exception)
@@ -77,20 +79,13 @@ namespace DmScreen.forms
         {
             if (txtTitle.Text != "")
             {
-                if (!IsMusicFile)
+                if (txtUrl.Text != "")
                 {
-                    if (txtUrl.Text != "")
-                    {
-                        Player.AddSong(txtTitle.Text, txtUrl.Text, IsMusicFile);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error: URL cannot be blank when 'Add URL' is selected.");
-                    }
+                    Player.AddSong(txtTitle.Text, txtUrl.Text, IsMusicFile);
                 }
                 else
                 {
-                    ShowUploadWindow();
+                    MessageBox.Show("Error: URL cannot be blank when 'Add URL' is selected.");
                 }
                 txtTitle.Text = "Title";
                 txtUrl.Text = "";
@@ -99,6 +94,14 @@ namespace DmScreen.forms
             {
                 MessageBox.Show("Error: the title cannot be blank.");
             }
+        }
+
+
+        //
+        //
+        private void btnSelectFile_Click(object sender, RoutedEventArgs e)
+        {
+            ShowUploadWindow();
         }
 
 
@@ -112,7 +115,6 @@ namespace DmScreen.forms
             if (openFileDialog.ShowDialog() == true)
             {
                 txtUrl.Text = openFileDialog.FileName;
-                Player.AddSong(txtTitle.Text, txtUrl.Text, IsMusicFile);
             }
         }
 
@@ -140,14 +142,14 @@ namespace DmScreen.forms
         //
         private void Text_Unselected(object sender, RoutedEventArgs e)
         {
-            if (txtTitle.Text == "")
-            {
-                txtTitle.Text = "Title";
-            }
-            if (txtUrl.Text == "")
-            {
-                txtUrl.Text = "URL";
-            }
+            //if (txtTitle.Text == "")
+            //{
+            //    txtTitle.Text = "Title";
+            //}
+            //if (txtUrl.Text == "")
+            //{
+            //    txtUrl.Text = "URL";
+            //}
         }
     }
 }

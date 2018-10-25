@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Add Music" Height="240.175" Width="321.895" ResizeMode="NoResize" IsEnabled="False">
     <Grid PreviewMouseDown="Text_Unselected">
-        <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="23,170,0,0" VerticalAlignment="Top" Width="122" Click="btnUpload_Click"/>
+        <Button x:Name="btnSelectFile" Content="Select File" HorizontalAlignment="Left" Margin="23,170,0,0" VerticalAlignment="Top" Width="122" Click="btnSelectFile_Click" IsEnabled="False"/>
         <RadioButton x:Name="rdoVideoUrl" Content="Add URL" HorizontalAlignment="Left" Margin="76,113,0,0" VerticalAlignment="Top" IsChecked="True" Width="159" Height="20" FontSize="16" Checked="rdoVideoUrl_Checked"/>
         <RadioButton x:Name="rdoAudioFile" Content="Add file path" HorizontalAlignment="Left" Margin="76,138,0,0" VerticalAlignment="Top" Width="142" Height="19" FontSize="16" Checked="rdoAudioFile_Checked"/>
         <TextBox x:Name="txtUrl" HorizontalAlignment="Left" Height="32" Margin="10,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="283" FontSize="14" Text="URL" PreviewMouseLeftButtonDown="URL_Clicked"/>
