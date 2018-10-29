@@ -79,7 +79,8 @@ namespace DmScreen
             {
                 Height = 110,
                 Width = 296,
-                Visibility = Visibility.Visible
+                Visibility = Visibility.Visible,
+                Name = title
             };
 
             Label lblTitle = new Label
@@ -155,6 +156,7 @@ namespace DmScreen
             this.SelectedDate = date;
             this.SelectedTheme = theme;
             btnLoadSelected.IsEnabled = true;
+            btnDeleteSelected.IsEnabled = true;
         }
 
 
@@ -189,6 +191,28 @@ namespace DmScreen
             };
             loadSelected.ShowDialog();
             this.Close();
+        }
+
+
+        //
+        // Shows the user a message box to confirm that they want to delete the campaign, and then deletes it if yes.
+        //
+        private void btnDeleteSelected_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to delete " + SelectedTitle + "?\nAll data associated with it will be gone forever!", "Delete Campaign", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                DeleteFromList(SelectedTitle);
+                HelperClass.DeleteCampaign(SelectedTitle);
+            }
+        }
+
+        
+        //
+        // Deletes the selected campaign from the list.
+        //
+        private void DeleteFromList(string title)
+        {
+            lstCampaignList.Items.RemoveAt(lstCampaignList.Items.IndexOf(lstCampaignList.SelectedItem));
         }
     }
 }

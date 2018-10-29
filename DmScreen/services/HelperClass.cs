@@ -202,5 +202,15 @@ namespace DmScreen
                 }
             }
         }
+
+
+        //
+        // Deletes the specified campaign data.
+        //
+        public static void DeleteCampaign(string title)
+        {
+            DirectoryInfo d = new DirectoryInfo(@"C:\DmHelper\campaigns\" + title);
+            d.Delete(true);
+        }
     }
 }
