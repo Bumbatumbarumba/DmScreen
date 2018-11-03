@@ -189,7 +189,6 @@ namespace DmScreen
                 Visibility = Visibility.Visible,
                 IsEnabled = true
             };
-            loadSelected.ShowDialog();
             this.Close();
         }
 

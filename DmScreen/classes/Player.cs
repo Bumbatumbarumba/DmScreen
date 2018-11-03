@@ -26,5 +26,7 @@ namespace DmScreen.classes
         public int DeathSaveSuccesses { get; set; }
         public int DeathSaveFailures { get; set; }
 
+        public int Xpos { get; set; }
+        public int Ypos { get; set; }
     }
 }
