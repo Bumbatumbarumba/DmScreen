@@ -1,0 +1,18 @@
+﻿<Window x:Class="DmScreen.forms.mapforms.CreateMapForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DmScreen.forms.mapforms"
+        mc:Ignorable="d"
+        Title="Create New Map" Height="211.497" Width="365.402" ResizeMode="NoResize">
+    <Grid>
+        <TextBox x:Name="txtWidth" HorizontalAlignment="Left" Height="36" Margin="146,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177" FontSize="16" VerticalContentAlignment="Center" PreviewTextInput="PreviewTextInput"/>
+        <TextBox x:Name="txtHeight" HorizontalAlignment="Left" Height="36" Margin="146,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177" VerticalContentAlignment="Center" FontSize="16" PreviewTextInput="PreviewTextInput"/>
+        <Button x:Name="btnCreate" Content="Create" HorizontalAlignment="Left" Margin="28,108,0,0" VerticalAlignment="Top" Width="113" Height="38" Click="btnCreate_Click"/>
+        <Label Content="Horizontal size:" HorizontalAlignment="Left" Margin="18,10,0,0" VerticalAlignment="Top" Width="123" FontSize="16"/>
+        <Label Content="Vertical size:" HorizontalAlignment="Left" Margin="18,56,0,0" VerticalAlignment="Top" Width="123" FontSize="16"/>
+        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="190,108,0,0" VerticalAlignment="Top" Width="113" Height="38" Click="btnCancel_Click"/>
+
+    </Grid>
+</Window>

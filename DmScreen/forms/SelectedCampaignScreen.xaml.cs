@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DmScreen.forms.mapforms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -53,14 +54,17 @@ namespace DmScreen.forms
 
 
         //
+        // When the mouse enters a combobox, the corresponding label colour
+        // is set to be white.
+        //
         private void Combo_MouseEnter(object sender, MouseEventArgs e)
         {
             ComboBox enteredCombo = (ComboBox)sender;
             string hoveredLabel = enteredCombo.Text;
             //enteredLabel.Background = new SolidColorBrush(Colors.LightGray);
-            if (lblModes.Content.Equals(hoveredLabel))
+            if (lblMap.Content.Equals(hoveredLabel))
             {
-                lblModes.Background = new SolidColorBrush(Colors.LightGray);
+                lblMap.Background = new SolidColorBrush(Colors.LightGray);
             }
             if (lblTools.Content.Equals(hoveredLabel))
             {
@@ -70,18 +74,25 @@ namespace DmScreen.forms
             {
                 lblSystem.Background = new SolidColorBrush(Colors.LightGray);
             }
+            if (lblPlayers.Content.Equals(hoveredLabel))
+            {
+                lblPlayers.Background = new SolidColorBrush(Colors.LightGray);
+            }
         }
 
 
+        //
+        // When the mouse exits a combobox, the corresponding label colour
+        // is set to be gray.
         //
         private void Combo_MouseExit(object sender, MouseEventArgs e)
         {
             ComboBox enteredCombo = (ComboBox)sender;
             string hoveredLabel = enteredCombo.Text;
             //enteredLabel.Background = new SolidColorBrush(Colors.LightGray);
-            if (lblModes.Content.Equals(hoveredLabel))
+            if (lblMap.Content.Equals(hoveredLabel))
             {
-                lblModes.Background = new SolidColorBrush(Colors.Gray);
+                lblMap.Background = new SolidColorBrush(Colors.Gray);
             }
             if (lblTools.Content.Equals(hoveredLabel))
             {
@@ -90,6 +101,10 @@ namespace DmScreen.forms
             if (lblSystem.Content.Equals(hoveredLabel))
             {
                 lblSystem.Background = new SolidColorBrush(Colors.Gray);
+            }
+            if (lblPlayers.Content.Equals(hoveredLabel))
+            {
+                lblPlayers.Background = new SolidColorBrush(Colors.Gray);
             }
         }
 
@@ -131,6 +146,30 @@ namespace DmScreen.forms
         }
 
 
+        //
+        private void btnCreateMap_Click(object sender, RoutedEventArgs e)
+        {
+            CreateMapForm cmf = new CreateMapForm();
+            cmf.ShowDialog();
+        }
+
+
+        //
+        private void btnViewMap_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+        //
+        // Takes the user to my website where the manual is located.
+        //
+        private void btnHelp_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://bartkosa.com/DmScreenHelp/pages/manual.html");
+        }
+
+
         ////
         //// Alternates between play mode and editor mode: false is play mode, true is editor mode.
         ////
@@ -147,19 +186,5 @@ namespace DmScreen.forms
         //        lblTools.Background = new SolidColorBrush(Colors.White);
         //    }
         //}
-
-
-        //
-        private void btnPlayMode_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-
-        //
-        private void btnEditorMode_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

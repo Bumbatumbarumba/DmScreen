@@ -5,24 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DmScreen.forms"
         mc:Ignorable="d"
-        Title="&lt;PUT TITLE HERE&gt;" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="&lt;PUT TITLE HERE&gt;" Height="507" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Label x:Name="lblSystem" Content="System" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="130" Margin="454,0,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Gray"/>
-        <Label x:Name="lblTools" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="30" Content="Tools" Background="Gray" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="324,0,0,0"/>
-        <Label x:Name="lblModes" Content="Modes" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="130" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Gray" Margin="194,0,0,0"/>
-        <ComboBox x:Name="cmbModes" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="30" Text="Modes" Opacity="0" MouseEnter="Combo_MouseEnter" MouseLeave="Combo_MouseExit" Margin="194,0,0,0">
-            <Button x:Name="btnPlayMode" Content="Play Mode" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="27" Click="btnPlayMode_Click" />
-            <Button x:Name="btnEditorMode" Content="Editor Mode" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="27" Click="btnEditorMode_Click"/>
+        <Label x:Name="lblSystem" Content="System" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="130" Margin="390,0,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Gray"/>
+        <Label x:Name="lblTools" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="30" Content="Tools" Background="Gray" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="130,0,0,0"/>
+        <Label x:Name="lblMap" Content="Map" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="130" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Gray" Margin="0,0,0,0"/>
+        <Label x:Name="lblPlayers" Content="Players" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="130" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Gray" Margin="260,0,0,0"/>
+        <ComboBox x:Name="cmbMap" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="30" Text="Map" Opacity="0" MouseEnter="Combo_MouseEnter" MouseLeave="Combo_MouseExit" Margin="0,0,0,0">
+            <Button x:Name="btnCreateMap" Content="Create/Edit Map" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="27" Click="btnCreateMap_Click"/>
+            <Button x:Name="btnViewMap" Content="View Map" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="27" Click="btnViewMap_Click"/>
         </ComboBox>
-        <ComboBox x:Name="cmbTools" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="125" Margin="324,0,0,0" Opacity="0" Text="Tools" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MouseEnter="Combo_MouseEnter" MouseLeave="Combo_MouseExit">
+        <ComboBox x:Name="cmbTools" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="125" Margin="130,0,0,0" Opacity="0" Text="Tools" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MouseEnter="Combo_MouseEnter" MouseLeave="Combo_MouseExit">
             <Button x:Name="btnBattleMode" Content="Commence Battle" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="27"/>
             <Button x:Name="btnMusicPlayer" Content="Music Player" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="27" Click="btnMusicPlayer_Click"/>
             <Button x:Name="btnDice" Content="Dice" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="27" Click="btnDice_Click"/>
         </ComboBox>
-        <ComboBox x:Name="cmbSystem" HorizontalAlignment="Left" Margin="454,0,0,0" VerticalAlignment="Top" Width="130" Height="30" Text="System" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MouseEnter="Combo_MouseEnter" MouseLeave="Combo_MouseExit" Opacity="0">
+        <ComboBox x:Name="cmbSystem" HorizontalAlignment="Left" Margin="390,0,0,0" VerticalAlignment="Top" Width="130" Height="30" Text="System" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MouseEnter="Combo_MouseEnter" MouseLeave="Combo_MouseExit" Opacity="0">
+            <Button x:Name="btnHelp" Content="Help" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="27" Click="btnHelp_Click"/>
             <Button x:Name="btnSettings" Content="Settings" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="27"/>
             <Button x:Name="btnSaveProgress" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="27"/>
             <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="27" Click="btnExit_Click"/>
+        </ComboBox>
+        <ComboBox x:Name="cmbPlayers" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="125" Margin="265,0,0,0" Opacity="0" Text="Players" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MouseEnter="Combo_MouseEnter" MouseLeave="Combo_MouseExit">
+            <Button x:Name="btnCreatePlayer" Content="Create" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="27"/>
         </ComboBox>
     </Grid>
 </Window>

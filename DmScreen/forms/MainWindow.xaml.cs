@@ -43,7 +43,7 @@ namespace DmScreen
         //
         private void btnAbout_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("DM Helper is a tool created by Bartosz Kosakowski." +
+            MessageBox.Show("DM Helper is a tool created by Bartosz Kosakowski. " +
                 "Development started on August 29th, 2018. Its purpose is to help DM's " +
                 "provide an immersive experience for their players by giving them " +
                 "various tools, such as a soundboard, a user-inputted series of " +
