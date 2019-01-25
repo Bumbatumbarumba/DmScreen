@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DmScreen.classes;
 
 namespace DmScreen.forms
 {
@@ -24,6 +25,7 @@ namespace DmScreen.forms
         public string CreatedOnDate { get; set; }
         public string Theme { get; set; }
         public string LastAccessedOn { get; set; }
+        public List<Player> PlayerList { get; set; }
 
         public SelectedCampaignScreen(string title, string date, string theme)
         {
@@ -32,6 +34,7 @@ namespace DmScreen.forms
             CreatedOnDate = date;
             Theme = theme;
             frmLoadedCampaign.Title = title;
+            PlayerList = new List<Player>();
         }
 
 

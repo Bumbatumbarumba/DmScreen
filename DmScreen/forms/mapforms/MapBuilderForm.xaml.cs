@@ -82,6 +82,8 @@ namespace DmScreen.forms.mapforms
             Byte blue = Convert.ToByte(141);
 
             inkMapDrawingBoard.DefaultDrawingAttributes.Color = Color.FromRgb(red, green, blue);
+            inkMapDrawingBoard.DefaultDrawingAttributes.Width = 16;
+            inkMapDrawingBoard.DefaultDrawingAttributes.Height = 16;
         }
 
 
